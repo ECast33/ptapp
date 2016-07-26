@@ -1,0 +1,26 @@
+# Master install file
+#
+
+# Create Tables
+#
+  CreateTable_Player               -- @ ./schemaScripts/CreateTable_Player.sql
+  CreateTable_Users                -- @ ./schemaScripts/CreateTable_Users.sql
+
+# Stored_procedures
+#
+#
+
+# Players
+#
+
+   sp_Player_Create                -- @ ./routineScripts/sp_Player_Create.sql
+   sp_Player_BuilderOne            -- @ ./routineScripts/sp_Player_BuilderOne.sql
+   sp_Player_BuilderAll            -- @ ./routineScripts/sp_Player_BuilderAll.sql
+
+
+# Users
+#
+
+   sp_User_BuilderAll            -- @ ./routineScripts/sp_User_BuilderAll.sql
+   sp_User_BuilderOne            -- @ ./routineScripts/sp_User_BuilderOne.sql
+   sp_User_Create                -- @ ./routineScripts/sp_User_Create.sql

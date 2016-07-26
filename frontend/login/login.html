@@ -1,0 +1,11 @@
+<div data-ng-controller="logInController" class="container-fluid">
+
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <p class="text-warning">{{error_message}}</p>
+        <input ng-model="user.userName" type="text" class="form-control" placeholder="userName" required autofocus>
+        <input  ng-model="user.password" type="password" class="form-control" placeholder="Password" required>
+        <button ng-click="login()"  class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+</div>

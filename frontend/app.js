@@ -20,8 +20,8 @@ app.config(
                 //controller: 'logInController'
             })
             //the logout display
-            .when('/logout', {
-                templateUrl: 'login.html'
+            .when('/clientReg', {
+                templateUrl: 'clientReg/clientReg.html'
                 //controller: 'authController'
             })
             .when('/dashboard', {

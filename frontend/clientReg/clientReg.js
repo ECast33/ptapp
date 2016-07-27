@@ -1,36 +1,36 @@
-app.controller('dashController', function  ( $http ,$scope, $rootScope, $location )
+app.controller('clientRegController', function  ( $scope, $rootScope, $location, $http )
 {
+
     if( false === $rootScope.authenticated  )
     {
         $location.path('/');
 
-    }else if( true === $rootScope.authenticated )
+    }else if( true == $rootScope.authenticated)
     {
         $scope.user = $rootScope.current_user;
-        $location.path('/dashboard' );
-    }
-    else 
+        $location.path('/clientReg' );
+    }else
     {
         $location.path('/');
     }
 
-    $scope.client = {
 
+    $scope.client = {
+        
         name: '',
         email: '',
         phone: '',
         age:   0,
         height: '',
         weight: 0
-
+        
     };
 
-    $scope.client.readAll = 1;
+    $scope.error_message = '';
     
-    $scope.clients = [];
-
-
-
+    $scope.regClient = function (  ) 
+    {
+        $scope.client.write =1;
 
         $http.post('api/clients', $scope.client ).success(
 
@@ -38,22 +38,19 @@ app.controller('dashController', function  ( $http ,$scope, $rootScope, $locatio
             {
                 if( 0 === data.length )
                 {
-                    console.log('Nope');
+                    $scope.error_message = 'Please fill Out form';
                     $location.path('/');
 
                 }
                 else
                 {
-
-                    $scope.clients = data;
-                  $location.path('/dashboard');
-
+                    $location.path('/');
                 }
 
 
             });
-
-
-
+        
+        
+    }
     
 });

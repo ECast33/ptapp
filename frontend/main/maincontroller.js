@@ -3,12 +3,16 @@ app.controller('mainController', function  ( $scope, $rootScope, $location )
 
     if( false === $rootScope.authenticated  )
     {
-        $location.path('/' );
+        $location.path('/');
 
-    }else
+    }else if(true === $rootScope.authenticated )
     {
         $scope.user = $rootScope.current_user;
-        $location.path('/dashboard' || '/');
+        $location.path('/dashboard' );
+    }
+    else
+    {
+        $location.path('/');
     }
 
 });

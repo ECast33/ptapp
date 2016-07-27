@@ -3,19 +3,19 @@
 
 # Create Tables
 #
-  CreateTable_Player               -- @ ./schemaScripts/CreateTable_Player.sql
+  CreateTable_Client               -- @ ./schemaScripts/CreateTable_Client.sql
   CreateTable_Users                -- @ ./schemaScripts/CreateTable_Users.sql
 
 # Stored_procedures
 #
 #
 
-# Players
+# Clients
 #
 
-   sp_Player_Create                -- @ ./routineScripts/sp_Player_Create.sql
-   sp_Player_BuilderOne            -- @ ./routineScripts/sp_Player_BuilderOne.sql
-   sp_Player_BuilderAll            -- @ ./routineScripts/sp_Player_BuilderAll.sql
+   sp_Client_Create                -- @ ./routineScripts/sp_Client_Create.sql
+   sp_Client_BuilderOne            -- @ ./routineScripts/sp_Client_BuilderOne.sql
+   sp_Client_BuilderAll            -- @ ./routineScripts/sp_Client_BuilderAll.sql
 
 
 # Users

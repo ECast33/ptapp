@@ -1,11 +1,28 @@
-<div ng-show="authenticated" data-ng-controller="dashController">
-
-    <h1> Hello This is the dashboard </h1>
+<div class="container" ng-show="authenticated" data-ng-controller="dashController">
 
     <div class="jumbotron">
+            <h1> Welcome to the trainer app!!</h1>
+            <p class="lead"> A personal trainer application where you can track your clients progress, manage
+                your clients appointments, keep detailed records of exercises, manage meal plans and much more!!
+            </p>
+            <p> lets Add a new client! </p>
+            <p> <a class="btn btn-lg btn-primary" href="#/clientReg" role="button">Add Client</a></p>
+
+        <div class="container">
+            <h3 > Client List</h3>
+
+            <div ng-repeat="x in clients">
+
+               <a> {{x}}</a>
+
+            </div>
+
+        </div>
 
     </div>
 
 
 
+
 </div>
+

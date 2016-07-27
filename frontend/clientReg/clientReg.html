@@ -1,0 +1,40 @@
+<div class="container" ng-show="authenticated" data-ng-controller="clientRegController">
+
+    <form>
+        <h2 class="form-signin-heading">Please Enter your clients info </h2>
+        <div class="form-group col-sm-10">
+            <label for="formGroupExampleInput">Clients Name</label>
+            <input ng-model="client.name" type="text" class="form-control" id="formGroupExampleInput" placeholder="name" required>
+        </div>
+
+        <div class="form-group  col-sm-10">
+            <label for="formGroupExampleInput2">Clients Email</label>
+            <input ng-model="client.email" type="text" class="form-control" id="formGroupExampleInput2" placeholder="email" required>
+        </div>
+
+        <div class="form-group  col-sm-10">
+            <label for="formGroupExampleInput3">Clients Phone Number</label>
+            <input ng-model="client.phone" type="text" class="form-control" id="formGroupExampleInput3" placeholder="phone" required>
+        </div>
+
+        <div class="form-group  col-sm-10">
+            <label for="formGroupExampleInput4">Clients Age</label>
+            <input ng-model="client.age" type="text" class="form-control" id="formGroupExampleInput4" placeholder="Age" required>
+        </div>
+
+        <div class="form-group  col-sm-10">
+            <label for="formGroupExampleInput5">Clients Height</label>
+            <input ng-model="client.height" type="text" class="form-control" id="formGroupExampleInput5" placeholder="height" required>
+        </div>
+
+        <div class="form-group  col-sm-10">
+            <label for="formGroupExampleInput6">Clients weight </label>
+            <input ng-model="client.weight" type="text" class="form-control" id="formGroupExampleInput6" placeholder="weight" required>
+        </div>
+
+        <button ng-click="regClient()"  class="btn btn-lg btn-primary col-sm-10" type="submit">Submit</button>
+
+    </form>
+
+
+</div>

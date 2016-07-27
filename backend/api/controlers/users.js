@@ -6,6 +6,23 @@ var _            = require('lodash'),
 
 module.exports = function ( )  {
 
+    function returnOne ( res, value )
+    {
+        if ( 0 < value.length && 0 < value[0].length )
+        {
+            return res.status( 200 ).json( value[0][0] );
+
+        } else
+        {
+            console.log( chalk.red('!! ' + ' : NO DATA ERROR') );
+
+            return res.status( 401 ).send( {
+                success: false,
+                message: "No Data"
+            } );
+        }
+    }
+
     function readImpl( req, res, next )
     {
         var sp_script = sprintf( "CALL %s( %s, %s, %s );",
@@ -59,7 +76,7 @@ module.exports = function ( )  {
             function ( value )
             {
 
-                res.json( value );
+              return res.json( value );
 
             }
         );

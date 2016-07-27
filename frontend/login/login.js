@@ -11,7 +11,7 @@ app.controller('logInController', function  ( $http, $scope, $rootScope, $locati
 
     $scope.login = function ( )
     {
-            //$scope.user.read = 1; going to backend
+            $scope.user.read = 1; 
             $http.post('api/auth', $scope.user ).success(
 
                 function( data )

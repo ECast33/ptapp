@@ -9,24 +9,33 @@ module.exports = function (  )
     
     function findUser( req, res, next )
     {
-        req.body.read = 1;
-       return users.post( req, res, next );
+
+        return users.post( req, res, next );
     }
-    
-    function createUser( newUser, done )
+
+    function createUser( req, res, next)
     {
-        bcrypt.genSalt(10, function(err, salt )
-        {
-            bcrypt.hash( newUser.password,  salt, function ( err, hash )
-            {
+        return users.post( req, res, next );
 
-                newUser.password = hash;
-                users.post( )
+        // TODO: Hash Password
+        // TODO: Compare password
 
-            });
-        });
+        // bcrypt.genSalt(10, function(err, salt )
+        // {
+        //     bcrypt.hash(  req.body.password,  salt, function ( err, hash )
+        //     {
+        //
+        //         req.body.password = hash;
+        //
+        //         var user = req.body;
+        //
+        //
+        //
+        //     });
+        //
+        // });
+
     }
-    
 
     passport.use( new LocalStrategy
     (
@@ -34,18 +43,7 @@ module.exports = function (  )
         function authenticate( username, password, done )
         {
             // DB CALL
-            
-            
-            // User.findOne({ username: username }, function (err, user) {
-            //     if (err) { return done(err); }
-            //     if (!user) {
-            //         return done(null, false, { message: 'Incorrect username.' });
-            //     }
-            //     if (!user.validPassword(password)) {
-            //         return done(null, false, { message: 'Incorrect password.' });
-            //     }
-            //     return done(null, user);
-            // });
+
         }
     ));
 
@@ -75,12 +73,17 @@ module.exports = function (  )
                 success: false,
                 message: "Invalid parameter"
             } );
-        }else
+        }else if( 1 === req.body.read )
         {
-            findUser( req, res, next );
+          return findUser( req, res, next );
             
         }
-        
+        else if( 1 === req.body.write )
+        {
+          return createUser( req, res, next );
+
+        }
+
     }
 
     var api =

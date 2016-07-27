@@ -21,7 +21,7 @@ app.controller('registerController', function  ( $scope, $http, $rootScope, $loc
         }
         else
         {
-            //$scope.user.write = 1;
+            $scope.user.write = 1;
             $http.post('api/auth', $scope.user ).success(
 
                 function( data )

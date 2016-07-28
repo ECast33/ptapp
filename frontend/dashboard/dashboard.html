@@ -7,19 +7,40 @@
             </p>
             <p> lets Add a new client! </p>
             <p> <a class="btn btn-lg btn-primary" href="#/clientReg" role="button">Add Client</a></p>
+    </div>
 
-        <div class="container">
-            <h3 > Client List</h3>
+    <div class="container">
+        <h3 > Client List</h3>
 
-            <div ng-repeat="x in clients">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Client Name</th>
+                <th>Client Email</th>
+                <th>Client Phone</th>
+                <th>Client Age</th>
+                <th>Client height</th>
+                <th>Client weight</th>
+            </tr>
+            </thead>
 
-               <a> {{x}}</a>
+            <tbody ng-repeat="client in clients">
+            <tr>
+                <th> <a >{{client.clientId}}</a> </th>
+                <td> <a href="#/">{{client.name}} </a></td>
+                <td>{{client.email}}</td>
+                <td>{{client.phone}}</td>
+                <td>{{client.age}}</td>
+                <td>{{client.height}}</td>
+                <td>{{client.weight}}</td>
 
-            </div>
-
-        </div>
+            </tr>
+            </tbody>
+        </table>
 
     </div>
+
 
 
 

@@ -18,6 +18,10 @@ app.config(
             .when('/login', {
                 templateUrl: '/login/login.html'
                 //controller: 'logInController'
+            })            //the login display
+            .when('/logout', {
+                templateUrl: '/login/login.html',
+                controller: 'logoutController'
             })
             //the logout display
             .when('/clientReg', {
@@ -33,3 +37,18 @@ app.config(
                 //controller: 'registerController'
             });
     });
+
+app.controller('logoutController', function ($scope, $rootScope, $location)
+{
+    if( false === $rootScope.authenticated  )
+    {
+        $location.path('/');
+
+    }else if(true === $rootScope.authenticated )
+    {
+        $rootScope.current_user = '';
+        $rootScope.authenticated = false;
+        $location.path('/' );
+    }
+
+});

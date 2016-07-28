@@ -1,5 +1,8 @@
 app.controller('dashController', function  ( $http ,$scope, $rootScope, $location )
 {
+
+
+
     if( false === $rootScope.authenticated  )
     {
         $location.path('/');
@@ -14,6 +17,7 @@ app.controller('dashController', function  ( $http ,$scope, $rootScope, $locatio
         $location.path('/');
     }
 
+
     $scope.client = {
 
         name: '',
@@ -26,13 +30,12 @@ app.controller('dashController', function  ( $http ,$scope, $rootScope, $locatio
     };
 
     $scope.client.readAll = 1;
-    
-    $scope.clients = [];
 
+    var clients = getClients( $scope.client);
 
-
-
-        $http.post('api/clients', $scope.client ).success(
+    function getClients( obj )
+    {
+        $http.post('api/clients', obj ).success(
 
             function( data )
             {
@@ -45,15 +48,10 @@ app.controller('dashController', function  ( $http ,$scope, $rootScope, $locatio
                 else
                 {
 
-                    $scope.clients = data;
-                  $location.path('/dashboard');
+                   $scope.clients = data ;
 
                 }
-
-
             });
+    }
 
-
-
-    
 });

@@ -39,7 +39,7 @@ app.controller('clientRegController', function  ( $scope, $rootScope, $location,
                 if( 0 === data.length )
                 {
                     $scope.error_message = 'Please fill Out form';
-                    $location.path('/');
+                    $location.path('/dashboard');
 
                 }
                 else

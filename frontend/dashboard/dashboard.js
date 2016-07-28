@@ -12,23 +12,12 @@ app.controller('dashController', function  ( $http ,$scope, $rootScope, $locatio
         $scope.user = $rootScope.current_user;
         $location.path('/dashboard' );
     }
-    else 
-    {
-        $location.path('/');
-    }
 
 
-    $scope.client = {
 
-        name: '',
-        email: '',
-        phone: '',
-        age:   0,
-        height: '',
-        weight: 0
 
-    };
-
+    $scope.clients =  [];
+    $scope.client =  {};
     $scope.client.readAll = 1;
 
     var clients = getClients( $scope.client);
@@ -39,18 +28,9 @@ app.controller('dashController', function  ( $http ,$scope, $rootScope, $locatio
 
             function( data )
             {
-                if( 0 === data.length )
-                {
-                    console.log('Nope');
-                    $location.path('/');
-
-                }
-                else
-                {
 
                    $scope.clients = data ;
 
-                }
             });
     }
 

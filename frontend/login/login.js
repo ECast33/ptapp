@@ -1,17 +1,28 @@
-app.controller('logInController', function  ( $http, $scope, $rootScope, $location )
-{
-    $scope.user =
-    {
-        userName: '',
-        password: '',
-        userId  : -1
-    };
+(function () {
 
-    $scope.error_message = '';
+    'use strict';
+    var controllerId = 'logInController';
 
-    $scope.login = function ( )
+    angular.module('app').controller( controllerId , logInController );
+
+    logInController.$inject = [ '$http' ,'$scope' , '$rootScope' , '$location', 'common_client' ];
+
+    function logInController( $http, $scope , $rootScope , $location, common_client )
     {
-            $scope.user.read = 1; 
+
+        $scope.user =
+        {
+            userName: '',
+            password: '',
+            userId  : -1
+        };
+
+        $scope.error_message = '';
+
+        $scope.login = function ( )
+        {
+            //TODO: use service
+            $scope.user.read = 1;
             $http.post('api/auth', $scope.user ).success(
 
                 function( data )
@@ -32,4 +43,8 @@ app.controller('logInController', function  ( $http, $scope, $rootScope, $locati
 
                 });
         }
-});
+
+    }
+
+})();
+

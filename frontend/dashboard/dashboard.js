@@ -1,37 +1,30 @@
-app.controller('dashController', function  ( $http ,$scope, $rootScope, $location )
-{
+( function ( ) {
 
+    'use strict'
+    var controllerId = 'dashController';
 
+    angular.module('app').controller( 'dashController' , dashController );
 
-    if( false === $rootScope.authenticated  )
+    dashController.$inject = [  '$scope' , '$rootScope' , '$location', 'common_client' ];
+
+    function dashController(  $scope , $rootScope , $location, common_client )
     {
-        $location.path('/');
 
-    }else if( true === $rootScope.authenticated )
-    {
-        $scope.user = $rootScope.current_user;
-        $location.path('/dashboard' );
+        if( false === $rootScope.authenticated  )
+        {
+            $location.path('/');
+
+        }else if( true === $rootScope.authenticated )
+        {
+            $scope.user = $rootScope.current_user;
+            $location.path('/dashboard' );
+        }
+
+        $scope.clients =  [];
+        $scope.client = {};
+
+        common_client.readAll( $scope.client );
+
     }
 
-
-
-
-    $scope.clients =  [];
-    $scope.client =  {};
-    $scope.client.readAll = 1;
-
-    var clients = getClients( $scope.client);
-
-    function getClients( obj )
-    {
-        $http.post('api/clients', obj ).success(
-
-            function( data )
-            {
-
-                   $scope.clients = data ;
-
-            });
-    }
-
-});
+})();

@@ -31,6 +31,9 @@ app.config(
             .when('/dashboard', {
                 templateUrl: 'dashboard/dashboard.html'
             })
+            .when('/clientEditor', {
+                templateUrl: 'clientEditor/clientEditor.html'
+            })
             //the signup display
             .when('/register', {
                 templateUrl: 'register/register.html'

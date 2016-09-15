@@ -1,9 +1,9 @@
 ( function ( ) {
 
-    'use strict'
+    'use strict';
     var controllerId = 'dashController';
 
-    angular.module('app').controller( 'dashController' , dashController );
+    angular.module('app').controller( controllerId , dashController );
 
     dashController.$inject = [  '$scope' , '$rootScope' , '$location', 'common_client' ];
 
@@ -20,10 +20,16 @@
             $location.path('/dashboard' );
         }
 
-        $scope.clients =  [];
         $scope.client = {};
+        $scope.clients  = [];
 
-        common_client.readAll( $scope.client );
+        common_client.readAll( $scope.client ).then(
+
+            function ( result )
+            {
+               $scope.clients = result;
+            }
+        );
 
     }
 

@@ -1,56 +1,63 @@
-app.controller('clientRegController', function  ( $scope, $rootScope, $location, $http )
+( function ()
 {
+    'use strict';
+    var controllerId = 'clientRegController';
 
-    if( false === $rootScope.authenticated  )
+    angular.module('app').controller( controllerId , clientRegController );
+
+    clientRegController.$inject = [  '$scope' , '$rootScope' , '$location', 'common_client' ];
+
+    function clientRegController( $scope , $rootScope , $location, common_client )
     {
-        $location.path('/');
 
-    }else if( true == $rootScope.authenticated)
-    {
-        $scope.user = $rootScope.current_user;
-        $location.path('/clientReg' );
-    }else
-    {
-        $location.path('/');
-    }
+        if( false === $rootScope.authenticated  )
+        {
+            $location.path('/');
 
+        }else if( true == $rootScope.authenticated)
+        {
+            $scope.user = $rootScope.current_user;
+            $location.path('/clientReg' );
+        }else
+        {
+            $location.path('/');
+        }
 
-    $scope.client = {
-        
-        name: '',
-        email: '',
-        phone: '',
-        age:   0,
-        height: '',
-        weight: 0
-        
-    };
+        $scope.client = {
 
-    $scope.error_message = '';
-    
-    $scope.regClient = function (  ) 
-    {
-        $scope.client.write =1;
+            name: '',
+            email: '',
+            phone: '',
+            age:   0,
+            height: '',
+            weight: 0
 
-        $http.post('api/clients', $scope.client ).success(
+        };
 
-            function( data )
-            {
-                if( 0 === data.length )
+        $scope.regClient = function (  )
+        {
+            common_client.write( $scope.client ).then(
+
+                function ( data )
                 {
-                    $scope.error_message = 'Please fill Out form';
-                    $location.path('/dashboard');
+
+                    if( 0 === data.length )
+                    {
+                        $scope.error_message = 'Please fill Out form';
+                        $location.path('/dashboard');
+
+                    }
+                    else
+                    {
+                        $scope.client = data;
+                        $location.path('/');
+
+                    }
 
                 }
-                else
-                {
-                    $location.path('/');
-                }
+            )
+        }
 
-
-            });
-        
-        
     }
-    
-});
+
+})();

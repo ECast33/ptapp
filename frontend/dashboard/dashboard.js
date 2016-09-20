@@ -30,7 +30,7 @@
                $scope.clients = result;
             }
         );
-
+        //todo use $scopebrodcast to pull up editor
     }
 
 })();

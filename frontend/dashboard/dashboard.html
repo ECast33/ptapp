@@ -27,8 +27,8 @@
 
             <tbody ng-repeat="client in clients">
             <tr>
-                <th> <a >{{client.clientId}}</a> </th>
-                <td> <a href="#/clientEditor">{{client.name}} </a></td>
+                <th> <a ng-bind="client.clientId" >{{client.clientId}}</a> </th>
+                <td> <a ng-bind="client.name" href="#/clientEditor">{{client.name}} </a></td>
                 <td>{{client.email}}</td>
                 <td>{{client.phone}}</td>
                 <td>{{client.age}}</td>

@@ -1,7 +1,9 @@
-var app = angular.module('app', ['ngRoute', 'ngResource']).run( function ( $rootScope ) {
+var app = angular.module('app', ['ngRoute', 'ngResource']).run( function ( $rootScope, $location, $anchorScroll) {
 
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
+
+
     
 });
 
@@ -52,6 +54,13 @@ app.controller('logoutController', function ($scope, $rootScope, $location)
         $rootScope.current_user = '';
         $rootScope.authenticated = false;
         $location.path('/' );
+    }
+
+    $scope.scrollTo = function ( id )
+    {
+        $location.hash(id);
+        $anchorScroll();
+
     }
 
 });

@@ -15,4 +15,11 @@ app.controller('mainController', function  ( $scope, $rootScope, $location )
         $location.path('/');
     }
 
+    $scope.scrollTo = function ( id )
+    {
+        $location.hash(id);
+        $anchorScroll();
+
+    }
+
 });

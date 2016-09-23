@@ -2,75 +2,104 @@
 
     'use strict';
 
-    var serviceId = common_client;
+    var serviceId = 'common_client';
 
-    angular.module('app').factory( 'common_client' , common_client );
+    angular.module('app').factory( serviceId , common_client );
 
-    common_client.$inject = ['$http'];
+    common_client.$inject = ['$http', '$q' ];
 
-   function common_client( $http)
+   function common_client( $http , $q )
    {
 
-       function readAll( obj )
+       function readAll( client )
        {
-           var clients = [];
-           obj.readAll = 1;
+           var defer = $q.defer();
 
-           return $http.post('api/clients', obj ).then(
+           client.readAll = 1;
 
-               function( result )
+            $http.post('api/clients', client).success(
+
+               function ( result )
                {
-                   clients = result.data;
-                   return clients;
-               });
+                   defer.resolve( result );
+               }
+            ).error(
+
+               function ( err, status)
+               {
+                    defer.reject( err );
+               }
+            );
+
+            return defer.promise;
        }
 
-       function write( obj )
+       function write( client )
        {
+           var defer = $q.defer();
 
-           var client = obj;
-           obj.write = 1;
+            client.write = 1;
 
-           return $http.post('api/clients', obj ).then(
+           $http.post('api/clients', client).success(
 
-               function( result )
+               function ( result )
                {
-                   client = result.data;
-                   return client;
-               });
+                   defer.resolve( result );
+               }
+           ).error(
 
+               function ( err, status)
+               {
+                   defer.reject( err );
+               }
+           );
+
+           return defer.promise;
        }
 
-       function read( obj )
+       function read( client )
        {
+           var defer = $q.defer();
 
-           var client = obj;
-           obj.read = 1;
+           client.read = 1;
 
-           return $http.post('api/clients', obj ).then(
+           $http.post('api/clients', client).success(
 
-               function( result )
+               function ( result )
                {
-                   client = result.data;
-                   return client;
-               });
+                   defer.resolve( result );
+               }
+           ).error(
 
+               function ( err, status)
+               {
+                   defer.reject( err );
+               }
+           );
+
+           return defer.promise;
        }
 
-       function update( obj )
+       function update( client )
        {
+           var defer = $q.defer();
 
-           var client = obj;
-           obj.update = 1;
+           client.update = 1;
 
-           return $http.post('api/clients', obj ).then(
+           $http.post('api/clients', client).success(
 
-               function( result )
+               function ( result )
                {
-                   client = result.data;
-                   return client;
-               });
+                   defer.resolve( result );
+               }
+           ).error(
 
+               function ( err, status)
+               {
+                   defer.reject( err );
+               }
+           );
+           return defer.promise;
        }
 
        var service =

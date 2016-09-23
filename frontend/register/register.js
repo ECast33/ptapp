@@ -5,9 +5,9 @@
 
     angular.module('app').controller( controllerId , registerController );
 
-    registerController.$inject = [ '$http', '$scope' , '$rootScope' , '$location', 'common_client' ];
+    registerController.$inject = [ '$http', '$scope' , '$rootScope' , '$location', 'common_user' ];
 
-    function registerController( $http, $scope , $rootScope , $location, common_client )
+    function registerController( $http, $scope , $rootScope , $location, common_user )
     {
 
         $scope.user =
@@ -23,26 +23,19 @@
         $scope.register = function ( )
         {
 
-            if( '' === $scope.user.userName && '' === $scope.user.password )
-            {
-                $scope.user.write = 0;
-                $scope.error_message = 'please the required information';
-                $location.path('/register');
-            }
-            else
-            {
+
                 // TODO: use Service
-                $scope.user.write = 1;
-                $http.post('api/auth', $scope.user ).success(
+            common_user.write( $scope.user ).then(
 
                     function( data )
                     {
+                        var result = data;
+
                         $rootScope.authenticated = true;
                         $rootScope.current_user = data.userName;
                         $location.path('/');
 
                     });
-            }
 
         };
 

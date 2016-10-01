@@ -14,7 +14,7 @@
         {
             $location.path('/');
 
-        }else if( true == $rootScope.authenticated)
+        }else if( true == $rootScope.authenticated )
         {
             $scope.user = $rootScope.current_user;
             $location.path('/clientReg' );
@@ -23,7 +23,8 @@
             $location.path('/');
         }
 
-        $scope.client = {
+
+        var currentClient = {
 
             name: '',
             email: '',
@@ -34,9 +35,14 @@
 
         };
 
+
+
+
         $scope.regClient = function (  )
         {
-            common_client.write( $scope.client ).then(
+            currentClient =  $scope.client;
+
+            common_client.write( currentClient ).then(
 
                 function ( data )
                 {
@@ -50,13 +56,18 @@
                     else
                     {
                         $scope.client = data;
-                        $location.path('/');
+                        $location.path('/dashboard');
 
                     }
 
+                }, function ( err )
+                {
+                    console.log( err );
                 }
-            )
+            );
         }
+
+
 
     }
 

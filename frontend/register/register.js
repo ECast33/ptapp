@@ -22,9 +22,6 @@
 
         $scope.register = function ( )
         {
-
-
-                // TODO: use Service
             common_user.write( $scope.user ).then(
 
                     function( data )
@@ -35,7 +32,11 @@
                         $rootScope.current_user = data.userName;
                         $location.path('/');
 
-                    });
+                    }, function ( err )
+                    {
+                        console.log( err );
+                    }
+            );
 
         };
 

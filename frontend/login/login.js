@@ -41,21 +41,11 @@
 
                     }
 
-                    // if( 0 === result.length )
-                    // {
-                    //     $scope.error_message = 'Username and password not found';
-                    //     $location.path('/register');
-                    //
-                    // }
-                    // else
-                    // {
-                    //     $rootScope.authenticated = true;
-                    //     $rootScope.current_user = result[0].userName;
-                    //     $location.path('/');
-                    // }
-
-
-                });
+                }, function ( err )
+                   {
+                       console.log( err );
+                   }
+           );
         }
 
     }

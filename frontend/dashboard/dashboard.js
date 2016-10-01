@@ -9,8 +9,9 @@
 
     function dashController(  $scope , $rootScope , $location, common_client )
     {
+
         $scope.client = {};
-        var clients = [];
+
         if( false === $rootScope.authenticated  )
         {
             $location.path('/');
@@ -21,14 +22,29 @@
             $location.path('/dashboard' );
         }
 
+
+
          common_client.readAll( $scope.client ).then(
 
             function ( result )
             {
+
                 $scope.clients = result;
-            }
+
+            },function ( err )
+             {
+                console.log( err );
+             }
 
         );
+
+        $scope.editClient = function ( client ) {
+
+            $location.path('/clientEditor' );
+
+            $rootScope.currentClient  = client;
+
+        };
 
 
         //todo use $scopebrodcast to pull up editor

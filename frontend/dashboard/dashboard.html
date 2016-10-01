@@ -1,4 +1,4 @@
-<div class="container" ng-show="authenticated" data-ng-controller="dashController">
+<div class="container" ng-show="authenticated" data-ng-controller="dashController as vm">
 
     <div class="jumbotron">
             <h1> Welcome to the trainer app!!</h1>
@@ -28,7 +28,7 @@
             <tbody ng-repeat="client in clients">
             <tr>
                 <th> <a ng-bind="client.clientId" >{{client.clientId}}</a> </th>
-                <td> <a ng-bind="client.name" href="#/clientEditor">{{client.name}} </a></td>
+                <td> <a ng-bind="client.name" ng-click="editClient( client  )">{{client.name}} </a></td>
                 <td>{{client.email}}</td>
                 <td>{{client.phone}}</td>
                 <td>{{client.age}}</td>

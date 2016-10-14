@@ -1,6 +1,5 @@
 ( function ( ) {
 
-    'use strict';
     var controllerId = 'dashController';
 
     angular.module('app').controller( controllerId , dashController );
@@ -9,6 +8,8 @@
 
     function dashController(  $scope , $rootScope , $location, common_client )
     {
+        //TODO USE EVERYTHING AS VM
+        var vm = this;
 
         $scope.client = {};
 

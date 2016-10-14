@@ -64,6 +64,27 @@ module.exports = function ( )  {
 
             }
         );
+    }    function updateImpl( req, res, next )
+    {
+        var sp_script = sprintf( "CALL %s( %s, %s, %s, %s, %s, %s );",
+            'sp_Client_Create',
+            mysql.escape( req.body.name ),
+            mysql.escape( req.body.email ),
+            mysql.escape( req.body.phone ),
+            mysql.escape( req.body.age ),
+            mysql.escape( req.body.height ),
+            mysql.escape( req.body.weight )
+        );
+
+        mysqlServ.executeSql( sp_script ).then (
+
+            function ( value )
+            {
+
+              return  res.json( value );
+
+            }
+        );
     }
 
 
@@ -86,48 +107,6 @@ module.exports = function ( )  {
     }
 
 
-    // function post( req, res, next)
-    // {
-    //
-    //     return new Promise ( function ( resolve, reject )
-    //     {
-    //         if ( undefined === req.body )
-    //             {
-    //                 reject( req );
-    //                 console.log( chalk.red('!! Attempting post : ERROR - missing body' ));
-    //
-    //                 return res.status( 401 ).send( {
-    //                     success: false,
-    //                     message: "Invalid parameter"
-    //                 } );
-    //
-    //             } else if( 1 == req.body.readAll )
-    //             {
-    //                return resolve( readAllImpl (req, res, next) );
-    //
-    //             } else if( 1 == req.body.write )
-    //             {
-    //                 return resolve ( writeImpl(req, res, next) );
-    //
-    //             }else if( 1 == req.body.read )
-    //             {
-    //                 return resolve ( readImpl( req, res, next ));
-    //
-    //             }else
-    //             {
-    //                 reject( req );
-    //                 return res.status( 401 ).send( {
-    //                     success: false,
-    //                     message: "Invalid parameter"
-    //                 } );
-    //
-    //             }
-    //
-    //     });
-    //
-    // }
-    
-    
     function post( req, res, next)
     {
         if ( undefined === req.body )
@@ -146,6 +125,10 @@ module.exports = function ( )  {
         } else if( 1 === req.body.write )
         {
             return writeImpl(req, res, next);
+
+        }else if( 1 === req.body.update )
+        {
+            return updateImpl(req, res, next);
 
         }else if( 1 === req.body.read )
         {

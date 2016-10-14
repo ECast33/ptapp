@@ -1,25 +1,29 @@
-( function () {
+( function ( ) {
 
     var controllerId = 'clientEditor';
 
     angular.module('app').controller( controllerId , clientEditor );
 
-    clientEditor.$inject = [ '$http' , '$scope' , '$rootScope' , '$location' , 'common_client'];
+    clientEditor.$inject = [ '$rootScope' , '$location', 'common_client'];
 
-    function clientEditor( $scope, $rootScope, $location, common_client )
+    function clientEditor( $rootScope, $location, common_client )
     {
-        $scope.currentClient = $rootScope.currentClient;
+        var vm = this;
 
-        var client = {};
+        vm.currentClient = $rootScope.currentClient;
 
-
-      $scope.clientCancel = function (  )
+      vm.clientCancel = function (  )
       {
-          $location.path('/dashboard');
-         $scope.currentClient = null;
+          console.log('button Clicked');
+          $location.path('/');
+      };
 
-      }
+      vm.clientSave = function ( )
+      {
 
+          //TODO Implement the save
+
+      };
 
     }
 

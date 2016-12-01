@@ -3,8 +3,6 @@ var app = angular.module('app', ['ngRoute', 'ngResource']).run( function ( $root
     $rootScope.authenticated = false;
     $rootScope.current_user = '';
     $rootScope.currentClient = {};
-
-
     
 });
 

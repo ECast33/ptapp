@@ -27,9 +27,11 @@ var options =
     // indexLocation    : path.join( __dirname, 'databaseScripts', 'indexScripts' )
 };
 
+/**
+ * DB installer uncomment to install DB cna change setting in config.
+ */
 var dbInstaller = require('./config/dbInstaller')( options );
-
-dbInstaller.installBuildScript();
+// dbInstaller.installBuildScript();
 
 
 /**

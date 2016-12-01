@@ -5,7 +5,7 @@ module.exports = function ( pool)
 
     var database =
     {
-        host                : "192.168.1.16",
+        host                : "192.168.0.20",
         port                : 3306,
         user                : 'fantasyApp',
         password            : '1234QWER',
@@ -16,7 +16,7 @@ module.exports = function ( pool)
     
     var pool = mysql.createPool(
         {
-            host                : "192.168.1.16",
+            host                : "192.168.0.20",
             port                : 3306,
             user                : 'fantasyApp',
             password            : '1234QWER',

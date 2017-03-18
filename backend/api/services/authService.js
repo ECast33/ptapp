@@ -1,7 +1,7 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     users = require('../../api/controlers/users')();
-var bcrypt = require('bcrypt');
+// var bcrypt = require('bcrypt');
 
 
 module.exports = function (  ) 

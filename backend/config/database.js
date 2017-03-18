@@ -5,22 +5,22 @@ module.exports = function ( pool)
 
     var database =
     {
-        host                : "192.168.1.16",
+        host                : "localhost",
         port                : 3306,
-        user                : 'fantasyApp',
+        user                : 'mobius1333',
         password            : '1234QWER',
-        database            : 'playerSpecial',
+        database            : 'ptApp',
         multipleStatements  : true
 
     };
     
     var pool = mysql.createPool(
         {
-            host                : "192.168.1.16",
+            host                : "localhost",
             port                : 3306,
-            user                : 'fantasyApp',
+            user                : 'mobius1333',
             password            : '1234QWER',
-            database            : 'playerSpecial'
+            database            : 'ptApp'
         });
 
    

@@ -29,7 +29,7 @@ var options =
 
 var dbInstaller = require('./config/dbInstaller')( options );
 
-dbInstaller.installBuildScript();
+//dbInstaller.installBuildScript();
 
 
 /**

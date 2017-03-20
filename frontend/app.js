@@ -5,9 +5,11 @@
 
         //AGULAR MODULES
         'ngRoute',
-        //'ui.router',
         'ngMaterial',
-        'ngSanitize'
+        'ngSanitize',
+        'ngAnimate',
+        'ui.router'
+
 
         // custom Modules
 

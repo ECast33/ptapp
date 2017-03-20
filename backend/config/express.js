@@ -26,15 +26,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname , '../../frontend')));
 
 //express session
-app.use(session({
-    secret: 'secret',
-    saveUninitialized: true,
-    resave: true
-}));
+// app.use(session({
+//     secret: 'secret',
+//     saveUninitialized: true,
+//     resave: true
+// }));
 
 //Passport Auth Service
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.use('/api', routes );
 

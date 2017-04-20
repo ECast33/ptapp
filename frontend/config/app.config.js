@@ -3,12 +3,12 @@
     //TODDO IMPL state provvider
     angular.module('app')
         .config([ '$locationProvider', '$stateProvider', '$urlRouterProvider', function ( $locationProvider, $stateProvider, $urlRouterProvider ) {
-            $urlRouterProvider.otherwise('#/');
+            $urlRouterProvider.otherwise('/login');
             $stateProvider
                 .state("login", {
-                    url: "#/login",
+                    url: "/login",
                     views:{
-                        "content": {templateUrl:"login/login.html", controller: "logInController"}
+                        "content": {templateUrl:"frontend/login/login.html", controller: "logInController"}
                     }
                 });
             $locationProvider.html5Mode(true);
@@ -19,7 +19,7 @@
 
         function runApp($rootScope, $state) {
             $rootScope.$on('$stateChangeStart', function (event, next) {
-               //$state.go('login');
+              $state.go('login');
             });
         }
 })();

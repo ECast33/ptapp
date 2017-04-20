@@ -25,6 +25,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname , '../../frontend')));
 
+app.all('/*', function(req, res) {
+   res.sendFile('../../frontend/index.html', { root: __dirname }); // or the name of your angular app html file
+});
+
 //express session
 // app.use(session({
 //     secret: 'secret',

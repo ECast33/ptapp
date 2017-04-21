@@ -11,7 +11,10 @@
                         "content": {templateUrl:"login/login.html", controller: "logInController"}
                     }
                 });
-            $locationProvider.html5Mode(true);
+            $locationProvider.html5Mode({
+                enabled: true,
+                requireBase: true
+            });
         }])
         .run(runApp);
 

@@ -8,7 +8,7 @@
                 .state("login", {
                     url: "/login",
                     views:{
-                        "content": {templateUrl:"login/login.html", controller: "logInController"}
+                        "content": {templateUrl:"app/login/login.html", controller: "logInController"}
                     }
                 });
             $locationProvider.html5Mode({
@@ -21,8 +21,8 @@
     runApp.$inject = ['$rootScope', '$state'];
 
         function runApp($rootScope, $state) {
-            $rootScope.$on('$stateChangeStart', function (event, next) {
-              $state.go('login');
-            });
+            // $rootScope.$on('$stateChangeStart', function (event, next) {
+            //   $state.go('login');
+            // });
         }
 })();

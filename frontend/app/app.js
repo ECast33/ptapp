@@ -4,9 +4,9 @@
     angular.module('app', [
 
         //AGULAR MODULES
-        'ngRoute',
+        // 'ngRoute',
         'ngMaterial',
-        'ngSanitize',
+        // 'ngSanitize',
         'ngAnimate',
         'ui.router'
 

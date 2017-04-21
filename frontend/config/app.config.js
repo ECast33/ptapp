@@ -8,7 +8,7 @@
                 .state("login", {
                     url: "/login",
                     views:{
-                        "content": {templateUrl:"frontend/login/login.html", controller: "logInController"}
+                        "content": {templateUrl:"login/login.html", controller: "logInController"}
                     }
                 });
             $locationProvider.html5Mode(true);

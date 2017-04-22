@@ -4,10 +4,12 @@
     angular.module('app', [
 
         //AGULAR MODULES
-        'ngRoute',
-        //'ui.router',
+        // 'ngRoute',
         'ngMaterial',
-        'ngSanitize'
+        // 'ngSanitize',
+        'ngAnimate',
+        'ui.router'
+
 
         // custom Modules
 

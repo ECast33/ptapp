@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname , '../../frontend')));
 
 app.all('/*', function(req, res) {
-   res.sendFile('../../frontend/index.html', { root: __dirname }); // or the name of your angular app html file
+   res.sendFile(path.resolve(__dirname , '../../frontend/index.html')); // or the name of your angular app html file
 });
 
 //express session

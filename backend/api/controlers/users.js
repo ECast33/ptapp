@@ -68,7 +68,6 @@ module.exports = function ( )  {
     {
         var sp_script = sprintf( "CALL %s( );",
             'sp_User_BuilderAll'
-
         );
 
         mysqlServ.executeSql( sp_script ).then (
@@ -82,49 +81,6 @@ module.exports = function ( )  {
         );
     }
 
-
-    // function post( req, res, next)
-    // {
-    //
-    //     return new Promise ( function ( resolve, reject )
-    //     {
-    //         if ( undefined === req.body )
-    //             {
-    //                 reject( req );
-    //                 console.log( chalk.red('!! Attempting post : ERROR - missing body' ));
-    //
-    //                 return res.status( 401 ).send( {
-    //                     success: false,
-    //                     message: "Invalid parameter"
-    //                 } );
-    //
-    //             } else if( 1 == req.body.readAll )
-    //             {
-    //                return resolve( readAllImpl (req, res, next) );
-    //
-    //             } else if( 1 == req.body.write )
-    //             {
-    //                 return resolve ( writeImpl(req, res, next) );
-    //
-    //             }else if( 1 == req.body.read )
-    //             {
-    //                 return resolve ( readImpl( req, res, next ));
-    //
-    //             }else
-    //             {
-    //                 reject( req );
-    //                 return res.status( 401 ).send( {
-    //                     success: false,
-    //                     message: "Invalid parameter"
-    //                 } );
-    //
-    //             }
-    //
-    //     });
-    //
-    // }
-    
-    
     function post( req, res, next)
     {
         if ( undefined === req.body )

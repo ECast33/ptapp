@@ -5,9 +5,13 @@
         .module('app')
         .controller('homeController', homeController);
         
-        homeController.inject = [];
+        homeController.inject = ['$scope', '$state'];
         
-        function homeController() {
+        function homeController($scope, $state) {
             
+            $scope.login = function(){
+                console.log('click');
+                $state.go("login");
+            }
         }
 })();

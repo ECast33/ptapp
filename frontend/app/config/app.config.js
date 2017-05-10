@@ -26,8 +26,6 @@
     runApp.$inject = ['$rootScope', '$state'];
 
         function runApp($rootScope, $state) {
-            // $rootScope.$on('$stateChangeStart', function (event, next) {
-            //   $state.go('login');
-            // });
+
         }
 })();

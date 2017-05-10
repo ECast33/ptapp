@@ -4,15 +4,12 @@
     angular.module('app', [
 
         //AGULAR MODULES
-        // 'ngRoute',
         'ngMaterial',
-        // 'ngSanitize',
         'ngAnimate',
-        'ui.router'
-
-
+        'ui.router',
         // custom Modules
-
+        
+        'app.header'
         //3rd party modules
 
     ]);

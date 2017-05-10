@@ -3,7 +3,9 @@
     'use strict';
     var controllerId = 'logInController';
 
-    angular.module('app').controller( controllerId , logInController );
+    angular
+        .module('app')
+        .controller( controllerId , logInController );
 
     logInController.$inject = [ '$scope' , '$rootScope' , '$location'];
 

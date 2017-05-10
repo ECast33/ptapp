@@ -41,7 +41,8 @@
     <!--Load the App-->
     <script src="app/app.js"></script>
     <script src="app/config/app.config.js"></script>
-    <!--<script src="main/maincontroller.js"></script>-->
+    <script src="app/home/homeController.js"></script>
+    <link href="app/home/home.css" rel="stylesheet">
     <script src="app/login/login.js"></script>
     <!--<script src="register/register.js"></script>-->
     <!--<script src="dashboard/dashboard.js"></script>-->
@@ -52,13 +53,9 @@
 
 
 </head>
-
     <body ng-app="app" ng-cloak>
-    
-            <section>
-                <div class="content" ui-view="content" flex > </div>
-            </section>
-    
-    
+        <section>
+            <div class="content" ui-view="content" flex > </div>
+        </section>
     </body>
 </html>

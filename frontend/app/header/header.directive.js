@@ -5,7 +5,7 @@
         .module('app.header')
         .directive('header', header);
         
-        header.$inject = [];
+        header.$inject = ['$state'];
         
         function header(){
         // Usage:
@@ -24,8 +24,11 @@
                 
             }
             
-            function controller($scope){
+            function controller($scope, $state){
                 
+                $scope.goHome = function(){
+                    $state.go('home')
+                }
             }
         
         }

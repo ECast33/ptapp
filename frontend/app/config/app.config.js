@@ -8,11 +8,13 @@
                 .state("login", {
                     url: "/login",
                     views:{
+                        "header": { template: "<header></header>" },
                         "content": {templateUrl:"app/login/login.html", controller: "logInController"}
                     }
                 }).state("home", {
                     url: "/home",
                     views:{
+                        "header": { template: "<header></header>" },
                         "content": {templateUrl:"app/home/home.html", controller: "homeController"}
                     }
                 });;

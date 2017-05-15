@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
+    <title>Executive System Solutions</title>
     <meta charset="UTF-8">
    <base href="/">
 
@@ -27,7 +27,6 @@
     <!--<script src="node_modules/angular-resource/angular-resource.js"></script>-->
     <!--<script src="node_modules/chart.js/dist/Chart.js"></script>-->
     <!--<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>-->
-    
 
     <!--Load the App-->
     <script src="app/app.js"></script>
@@ -39,11 +38,13 @@
     <!--HEADER MODULE-->
     <script src="app/header/header.module.js"></script>
     <script src="app/header/header.directive.js"></script>
-
+    <link href="app/header/header.css" rel="stylesheet">
+    
 </head>
     <body ng-app="app" ng-cloak>
         <section>
-            <div class="content" ui-view="content" flex > </div>
+            <header></header>
+            <div class="content" ui-view="content" flex></div>
         </section>
     </body>
 </html>

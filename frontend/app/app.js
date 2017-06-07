@@ -9,7 +9,8 @@
         'ui.router',
         // custom Modules
         
-        'app.header'
+        'app.header',
+        'app.carousel'
         //3rd party modules
 
     ]);

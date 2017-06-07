@@ -29,6 +29,12 @@
                 $scope.goHome = function(){
                     $state.go('home')
                 }
+                
+                            
+                $scope.login = function(){
+                    console.log('click');
+                    $state.go("login");
+                 }
             }
         
         }

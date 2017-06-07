@@ -40,11 +40,17 @@
     <script src="app/header/header.directive.js"></script>
     <link href="app/header/header.css" rel="stylesheet">
     
+    <!--CAROUSEL-->
+    <script type="text/javascript" src="/app/carousel/carousel.module.js"></script>
+    <script type="text/javascript" src="/app/carousel/carousel.directive.js"></script>
+    
 </head>
     <body ng-app="app" ng-cloak>
         <section>
             <header></header>
-            <div class="content" ui-view="content" flex></div>
+            <section layout="row" flex>
+                <div class="contentHome" ui-view="content" flex></div>
+            </section>
         </section>
     </body>
 </html>

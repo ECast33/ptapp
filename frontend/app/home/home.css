@@ -1,14 +1,3 @@
-body {
-  background-image: url("../../images/backPage1.jpeg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  height: 950px;
-}
 body .contentHome {
   position: relative;
   width: 100%;

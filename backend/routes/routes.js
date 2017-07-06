@@ -6,7 +6,7 @@ var express = require('express'),
 
 router.route('/users').post( users.post );
 router.route('/auth' ).post( authService.post );
-router.route('/clients' ).post( clients.post );
+router.route('/clients').post( clients.post );
 
 
 module.exports = router;

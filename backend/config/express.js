@@ -29,6 +29,7 @@ app.all('/*', function(req, res) {
    res.sendFile(path.resolve(__dirname , '../../frontend/index.html')); // or the name of your angular app html file
 });
 
+app.use('/api', routes ); //route declaration for api
 //express session
 // app.use(session({
 //     secret: 'secret',
@@ -40,7 +41,7 @@ app.all('/*', function(req, res) {
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-app.use('/api', routes );
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
